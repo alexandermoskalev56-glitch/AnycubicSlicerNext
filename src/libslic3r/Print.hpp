@@ -502,6 +502,8 @@ private:
     void slice_volumes();
     //BBS
     ExPolygons _shrink_contour_holes(double contour_delta, double hole_delta, const ExPolygons& polys) const;
+    // Same as above, but the contour can be offset independently along X and Y.
+    ExPolygons _shrink_contour_holes_xy(double contour_delta_x, double contour_delta_y, double hole_delta, const ExPolygons& polys) const;
     // BBS
     void detect_overhangs_for_lift();
     void clear_overhangs_for_lift();

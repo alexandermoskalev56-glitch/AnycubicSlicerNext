@@ -5848,6 +5848,28 @@ void PrintConfigDef::init_fff_params()
     def->mode = comAdvanced;
     def->set_default_value(new ConfigOptionFloat(0));
 
+    def = this->add("xy_contour_compensation_x", coFloat);
+    def->label = L("X contour compensation");
+    def->category = L("Quality");
+    def->tooltip = L("Additional contour compensation applied along the X axis only. "
+                     "It is added to the general X-Y contour compensation, so the effective X value is "
+                     "'X-Y contour compensation' + 'X contour compensation'. "
+                     "Positive values make contours wider in X, negative values make them narrower.");
+    def->sidetext = "mm";	// milimeters, don't need translation
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionFloat(0));
+
+    def = this->add("xy_contour_compensation_y", coFloat);
+    def->label = L("Y contour compensation");
+    def->category = L("Quality");
+    def->tooltip = L("Additional contour compensation applied along the Y axis only. "
+                     "It is added to the general X-Y contour compensation, so the effective Y value is "
+                     "'X-Y contour compensation' + 'Y contour compensation'. "
+                     "Positive values make contours wider in Y, negative values make them narrower.");
+    def->sidetext = "mm";	// milimeters, don't need translation
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionFloat(0));
+
     def = this->add("hole_to_polyhole", coBool);
     def->label = L("Convert holes to polyholes");
     def->category = L("Quality");

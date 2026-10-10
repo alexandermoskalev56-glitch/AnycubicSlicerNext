@@ -1623,7 +1623,9 @@ Print::ApplyStatus Print::apply(const Model &model, DynamicPrintConfig new_full_
                 m_default_region_config,
                 model_object_status.print_instances.front().trafo,
                 num_extruders ,
-                print_object.is_mm_painted() ? 0.f : float(print_object.config().xy_contour_compensation.value),
+                // Pad the volume bounding boxes by the largest effective contour growth along either axis.
+                print_object.is_mm_painted() ? 0.f : float(std::max(print_object.config().xy_contour_compensation.value + print_object.config().xy_contour_compensation_x.value,
+                                                                     print_object.config().xy_contour_compensation.value + print_object.config().xy_contour_compensation_y.value)),
                 painting_extruders,
                 print_object.is_fuzzy_skin_painted());
         }

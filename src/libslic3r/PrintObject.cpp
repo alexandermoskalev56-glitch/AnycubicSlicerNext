@@ -970,6 +970,8 @@ bool PrintObject::invalidate_state_by_config_options(
             || opt_key == "support_bottom_z_distance"
             || opt_key == "xy_hole_compensation"
             || opt_key == "xy_contour_compensation"
+            || opt_key == "xy_contour_compensation_x"
+            || opt_key == "xy_contour_compensation_y"
             //BBS: [Arthur] the following params affect bottomBridge surface type detection
             || opt_key == "support_type"
             || opt_key == "bridge_no_support"
